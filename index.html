@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+</html>
+<head>
+<title>
+MatchMaker Web Amin Al-Ashqar
+</title>
+<h1>
+Matchmaker: Find Your Significant Other in Five Questions
+</h1>
+<p>
+Five questions to determine the love of your life. Answers range from Strongly Agree to Strongly Disagree, with Neutral as an option for the faint of heart. Good luck in finding that one true love! 
+<body>
+<br>
+    <label>Bernard Sanders rocks!</label>
+    <select id = "q1">
+        <option value = "5">Strongly Agree</option>
+        <option value = "4">Agree</option>
+        <option value = "3">Neutral</option>
+        <option value = "2">Disagree</option>
+        <option value = "1">Strongly Disagree</option>
+    </select>
+    <br>
+    <label>Voting is Cool!</label>
+    <select id = "q2">
+        <option value = "5">Strongly Agree</option>
+        <option value = "4">Agree</option>
+        <option value = "3">Neutral</option>
+        <option value = "2">Disagree</option>
+        <option value = "1">Strongly Disagree</option>
+    </select>
+    <br>
+    <label>Politics make my day!</label>
+    <select id = "q3">
+        <option value = "5">Strongly Agree</option>
+        <option value = "4">Agree</option>
+        <option value = "3">Neutral</option>
+        <option value = "2">Disagree</option>
+        <option value = "1">Strongly Disagree</option>
+    </select>
+    <br>
+    <label>Coffee is gross</label>
+    <select id = "q4">
+        <option value = "5">Strongly Agree</option>
+        <option value = "4">Agree</option>
+        <option value = "3">Neutral</option>
+        <option value = "2">Disagree</option>
+        <option value = "1">Strongly Disagree</option>
+    </select>
+    <br>
+    <label>Donald Trump is a bad President</label>
+    <select id = "q5">
+        <option value = "5">Strongly Agree</option>
+        <option value = "4">Agree</option>
+        <option value = "3">Neutral</option>
+        <option value = "2">Disagree</option>
+        <option value = "1">Strongly Disagree</option>
+    </select>
+    <br>
+
+    <br /><br /><br /> 
+    <button onclick="calculateCompatibility()">Calculate Compatibility</button>
+    <p id="friends"></p>
+    <p id="compatibility"></p>
+
+<script>
+console.log("Starting MatchMaker Web...")
+
+function calculateCompatibility() {
+    const Preferred_Answers = [
+        5, // question 1 strongly agree
+        5, // question 2 strongly agree
+        5, // question 3 strongly agree
+        5, // question 4 strongly agree
+        5 // question 5 strongly agree
+    ]
+    console.log("calculateCompatibility()")
+    let question1Response = document.getElementById('q1').selectedOptions[0].value;
+    console.log("R1 = " + question1Response);
+    let question1Text = document.getElementById('q1').selectedOptions[0].text;
+    console.log("R1Text = " + question1Text);
+    let question2Response = document.getElementById('q2').selectedOptions[0].value;
+    console.log("R2 = " + question2Response);
+    let question2Text = document.getElementById('q2').selectedOptions[0].text;
+    console.log("R2Text = " + question2Text);
+    let question3Response = document.getElementById('q3').selectedOptions[0].value;
+    console.log("R3 = " + question3Response);
+    let question3Text = document.getElementById('q3').selectedOptions[0].text;
+    console.log("R3Text = " + question3Text);
+    let question4Response = document.getElementById('q4').selectedOptions[0].value;
+    console.log("R4 = " + question4Response);
+    let question4Text = document.getElementById('q4').selectedOptions[0].text;
+    console.log("R4Text = " + question4Text);
+    let question5Response = document.getElementById('q5').selectedOptions[0].value;
+    console.log("R5 = " + question5Response);
+    let question5Text = document.getElementById('q5').selectedOptions[0].text;
+    console.log("R5Text = " + question5Text);
+
+    
+    
+
+    
+    let compatibility1 = 5-Math.abs(question1Response-Preferred_Answers[0]);
+    console.log("C1 = " + compatibility1);
+    let compatibility2 = 5-Math.abs(question2Response-Preferred_Answers[1]);
+    console.log("C2 = " + compatibility2);
+    let compatibility3 = 5-Math.abs(question3Response-Preferred_Answers[2]);
+    console.log("C3 = " + compatibility3);
+    let compatibility4 = 5-Math.abs(question4Response-Preferred_Answers[3]);
+    console.log("C4 = " + compatibility4);
+    let compatibility5 = 5-Math.abs(question5Response-Preferred_Answers[4]);
+    console.log("C5 = " + compatibility5);
+
+    let totalCompatibility = (compatibility1 + compatibility2 + compatibility3 + compatibility4 + compatibility5);
+    totalCompatibility = totalCompatibility *4;
+    document.getElementById("compatibility").innerHTML = "Your compatibility score is: " + totalCompatibility + "%"
+
+    {
+    if (totalCompatibility <= 65) {
+    document.getElementById("friends").innerHTML = "Get away from me."
+    }else if (totalCompatibility < 80 && totalCompatibility > 66) {
+    document.getElementById("friends").innerHTML = "We possibly could be friends."
+    }else{
+    document.getElementById("friends").innerHTML = "Let's be best friends!"
+    }
+}
+
+}
+</script>
